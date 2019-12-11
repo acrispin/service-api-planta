@@ -55,6 +55,7 @@
         FROM @tb_plantas AS plantas
         JOIN TOAT.dbo.mapp AS mapp WITH(NOLOCK)
             ON plantas.period_code = mapp.period_code
+        ORDER BY plantas.period_code ASC
         ;
     </select>
 
