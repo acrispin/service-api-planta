@@ -1,22 +1,21 @@
-package com.unicon.api.serviceapiplanta.beans;
+package com.unicon.api.planta.beans;
 
 import java.io.Serializable;
 
-public class PlantaOptimaBean {
+public class PlantaOptimaBean implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     protected String codigoPlanta;
-    protected String descripcionPlanta;
+    // protected String descripcionPlanta;
     protected String periodo;
     protected Integer tiempo;
 
     public PlantaOptimaBean() {
     }
 
-    public PlantaOptimaBean(String codigoPlanta, String descripcionPlanta, String periodo, Integer tiempo) {
+    public PlantaOptimaBean(String codigoPlanta, String periodo, Integer tiempo) {
         this.codigoPlanta = codigoPlanta;
-        this.descripcionPlanta = descripcionPlanta;
         this.periodo = periodo;
         this.tiempo = tiempo;
     }
@@ -25,7 +24,6 @@ public class PlantaOptimaBean {
     public String toString() {
         return "PlantaOptimaBean{" +
                 "codigoPlanta='" + codigoPlanta + '\'' +
-                ", descripcionPlanta='" + descripcionPlanta + '\'' +
                 ", periodo='" + periodo + '\'' +
                 ", tiempo=" + tiempo +
                 '}';
@@ -37,14 +35,6 @@ public class PlantaOptimaBean {
 
     public void setCodigoPlanta(String codigoPlanta) {
         this.codigoPlanta = codigoPlanta;
-    }
-
-    public String getDescripcionPlanta() {
-        return descripcionPlanta;
-    }
-
-    public void setDescripcionPlanta(String descripcionPlanta) {
-        this.descripcionPlanta = descripcionPlanta;
     }
 
     public String getPeriodo() {

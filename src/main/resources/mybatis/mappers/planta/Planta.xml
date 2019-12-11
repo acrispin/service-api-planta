@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.unicon.api.planta.mapper.IPlantaMapper">
+
+    <!--@since 20191210 ACRISPIN | Mapper para sunat-->
+    <resultMap id="selectPlantaOptimaFullMap" type="com.unicon.api.planta.beans.PlantaOptimaFullBean">
+        <result property="coPta" column="co_pta"/>
+        <result property="periodCode" column="period_code"/>
+        <result property="tiempo" column="tiempo"/>
+        <result property="origen" column="origen"/>
+        <result property="ptaLatitud" column="pta_latitud"/>
+        <result property="ptaLongitud" column="pta_longitud"/>
+        <result property="rowNum" column="row_num"/>
+    </resultMap>
+
+    <!--@since 20191210 ACRISPIN | Mapper para sunat-->
+    <select id="selectPlantaOptimaFull"
+            parameterType="java.util.Map"
+            resultMap="selectPlantaOptimaFullMap">
+        EXEC [TOAT].[dbo].[usp_get_planta_optima] #{idMarca}, #{cuadrante}, #{lat}, #{lon};
+    </select>
+
+    <!--@since 20191210 ACRISPIN | Mapper para sunat-->
+    <resultMap id="selectPlantaOptimaMap" type="com.unicon.api.planta.beans.PlantaOptimaBean">
+        <result property="codigoPlanta" column="co_pta"/>
+        <result property="tiempo" column="tiempo"/>
+        <result property="periodo" column="periodo"/>
+    </resultMap>
+
+    <select id="selectPlantaOptima"
+            parameterType="java.util.Map"
+            resultMap="selectPlantaOptimaMap">
+        SET NOCOUNT ON;
+
+        DECLARE @tb_plantas TABLE (
+            co_pta CHAR(3),
+            period_code CHAR(8),
+            tiempo INT
+        );
+
+        INSERT INTO @tb_plantas
+        VALUES
+        <foreach collection="detalles" item="det" separator=",">
+            (
+                #{det.coPta},
+                #{det.periodCode},
+                #{det.tiempo}
+            )
+        </foreach>;
+
+        SELECT
+            plantas.co_pta,
+            plantas.tiempo,
+            CONVERT(VARCHAR, mapp.from_time, 108) + ' a ' + CONVERT(VARCHAR, mapp.thru_time, 108) AS periodo
+        FROM @tb_plantas AS plantas
+        JOIN TOAT.dbo.mapp AS mapp WITH(NOLOCK)
+            ON plantas.period_code = mapp.period_code
+        ;
+    </select>
+
+</mapper>
