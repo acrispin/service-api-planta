@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.unicon.api.planta.mapper.IPlantaMapper">
 
-    <!--@since 20191210 ACRISPIN | Mapper para sunat-->
+    <!--@since 20191210 ACRISPIN | Mapper para plantas-->
     <resultMap id="selectPlantaOptimaFullMap" type="com.unicon.api.planta.beans.PlantaOptimaFullBean">
         <result property="coPta" column="co_pta"/>
         <result property="periodCode" column="period_code"/>
@@ -13,14 +13,14 @@
         <result property="rowNum" column="row_num"/>
     </resultMap>
 
-    <!--@since 20191210 ACRISPIN | Mapper para sunat-->
+    <!--@since 20191210 ACRISPIN | Mapper para plantas-->
     <select id="selectPlantaOptimaFull"
             parameterType="java.util.Map"
             resultMap="selectPlantaOptimaFullMap">
         EXEC [TOAT].[dbo].[usp_get_planta_optima] #{idMarca}, #{cuadrante}, #{lat}, #{lon};
     </select>
 
-    <!--@since 20191210 ACRISPIN | Mapper para sunat-->
+    <!--@since 20191210 ACRISPIN | Mapper para plantas-->
     <resultMap id="selectPlantaOptimaMap" type="com.unicon.api.planta.beans.PlantaOptimaBean">
         <result property="codigoPlanta" column="co_pta"/>
         <result property="tiempo" column="tiempo"/>
