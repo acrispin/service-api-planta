@@ -60,7 +60,7 @@ public class PlantaDao extends DaoApplication<PlantaOptimaBean, IPlantaMapper> {
                                                      Double lon) {
         List<PlantaOptimaBean> listaResponse;
         List<PlantaOptimaFullBean> lista = selectPlantaOptimaFull(idMarca, cuadrante, lat, lon);
-        if (lista != null) {
+        if (lista != null && lista.size() > 0) {
             lista = lista.stream().filter(p -> p.getRowNum() == 1).collect(Collectors.toList());
             listaResponse = queryList("selectPlantaOptima", idMarca, lista);
         } else {
