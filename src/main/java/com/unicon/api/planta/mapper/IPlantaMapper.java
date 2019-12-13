@@ -1,6 +1,6 @@
 package com.unicon.api.planta.mapper;
 
-import com.unicon.api.planta.beans.PlantaOptimaBean;
+import com.unicon.api.commons.beans.planta.PlantaOptimaBean;
 import com.unicon.api.planta.beans.PlantaOptimaFullBean;
 import org.apache.ibatis.annotations.Param;
 

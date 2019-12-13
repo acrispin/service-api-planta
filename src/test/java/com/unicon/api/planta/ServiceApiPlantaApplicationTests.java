@@ -1,7 +1,5 @@
 package com.unicon.api.planta;
 
-import com.unicon.api.planta.beans.PlantaOptimaBean;
-import com.unicon.api.planta.beans.PlantaOptimaFullBean;
 import com.unicon.api.planta.dao.PlantaDao;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

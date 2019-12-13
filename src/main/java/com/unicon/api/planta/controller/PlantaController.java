@@ -1,6 +1,6 @@
 package com.unicon.api.planta.controller;
 
-import com.unicon.api.planta.beans.PlantaOptimaBean;
+import com.unicon.api.commons.beans.planta.PlantaOptimaBean;
 import com.unicon.api.planta.service.IPlantaService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,6 +1,6 @@
 package com.unicon.api.planta.service;
 
-import com.unicon.api.planta.beans.PlantaOptimaBean;
+import com.unicon.api.commons.beans.planta.PlantaOptimaBean;
 
 import java.util.List;
 

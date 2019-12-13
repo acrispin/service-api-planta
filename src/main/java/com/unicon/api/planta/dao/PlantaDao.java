@@ -1,8 +1,8 @@
 package com.unicon.api.planta.dao;
 
+import com.unicon.api.commons.beans.planta.PlantaOptimaBean;
 import com.unicon.api.commons.db.dao.DaoApplication;
 import com.unicon.api.commons.db.dao.enums.EConnectionType;
-import com.unicon.api.planta.beans.PlantaOptimaBean;
 import com.unicon.api.planta.beans.PlantaOptimaFullBean;
 import com.unicon.api.planta.mapper.IPlantaMapper;
 import lombok.extern.log4j.Log4j2;

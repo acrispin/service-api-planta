@@ -21,7 +21,7 @@
     </select>
 
     <!--@since 20191210 ACRISPIN | Mapper para plantas-->
-    <resultMap id="selectPlantaOptimaMap" type="com.unicon.api.planta.beans.PlantaOptimaBean">
+    <resultMap id="selectPlantaOptimaMap" type="com.unicon.api.commons.beans.planta.PlantaOptimaBean">
         <result property="codigoPlanta" column="co_pta"/>
         <result property="tiempo" column="tiempo"/>
         <result property="periodo" column="periodo"/>
